@@ -1,0 +1,12 @@
+{
+  "name": "mwg",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.26.0",
+    "meteor-node-stubs": "^0.3.2",
+    "moment": "^2.19.2"
+  }
+}
