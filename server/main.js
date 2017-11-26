@@ -1,12 +1,16 @@
 
 import { Meteor } from 'meteor/meteor';
+import { Mongo } from 'meteor/mongo';
 import { Email } from 'meteor/email';
 import moment from 'moment';
 //import { SSR } from 'meteorhacks:ssr';
 
+const Contacts = new Mongo.Collection('contacts');
+
 Meteor.methods({
   requestQuote(formData) {
     console.log(formData);
+    Contacts.insert(formData);
     const html = SSR.render("email", formData);
     Email.send({
       from: "mwginspections@gmail.com",

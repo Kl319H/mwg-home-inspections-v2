@@ -16,9 +16,9 @@ Template.contact.events({
         instance.findAll('.form-control').forEach((input) => {
             form[input.name] = input.value;
         });
-        console.log(form);
+        //console.log(form);
         Meteor.call("requestQuote", form, (error, result) => {
-            console.log(error, result);
+            //console.log(error, result);
         });
         instance.form.set("thankYou");
     }
