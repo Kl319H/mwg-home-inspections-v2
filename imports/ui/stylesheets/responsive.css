@@ -226,8 +226,6 @@
     }
 
 
-}
-
 @media (max-width: 320px) {
 
 
@@ -237,5 +235,6 @@
     .about_skill_area .about_tabe .about_tabe_menu li a {
         width: 60px;
     }
+
 }
 
