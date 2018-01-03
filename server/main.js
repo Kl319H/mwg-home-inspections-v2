@@ -14,7 +14,7 @@ Meteor.methods({
     const html = SSR.render("email", formData);
     Email.send({
       from: "mwginspections@gmail.com",
-      to: "michaelgremillion@yahoo.com",
+      to: "mike@mwghomeinspections.com",
       bcc: "derrick.gremillion@gmail.com",
       subject: `Quote Request from ${formData.email}`,
       html: html
@@ -26,7 +26,6 @@ Meteor.methods({
 Meteor.startup(() => {
   const emailPassword = Meteor.settings.emailPassword;
   process.env.MAIL_URL = `smtps://mwginspections@gmail.com:${emailPassword}@smtp.gmail.com:465/`;
-  console.log(SSR);
   
   /*   Email.send({
           from: "mwginspections@gmail.com",

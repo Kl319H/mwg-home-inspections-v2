@@ -1,4 +1,6 @@
 //ssh ubuntu@34.215.225.93
+//docker exec -it mongodb mongo mwg-home-inspections
+//mup logs -f
 
 module.exports = {
   servers: {
