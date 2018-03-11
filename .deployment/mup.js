@@ -1,12 +1,13 @@
-//ssh ubuntu@34.215.225.93
+//ssh root@159.65.70.35
 //docker exec -it mongodb mongo mwg-home-inspections
 //mup logs -f
 
 module.exports = {
   servers: {
     one: {
-      host: '34.215.225.93',
-      username: 'ubuntu',
+      host: '159.65.70.35',
+      username: 'root',
+      pem: '~/.ssh/id_rsa'
     }
   },
 
@@ -28,31 +29,25 @@ module.exports = {
       ROOT_URL: 'https://mwghomeinspections.com',
       MONGO_URL: 'mongodb://localhost/mwg-home-inspections',
     },
-
-    ssl: { // (optional)
-      // Enables let's encrypt (optional)
-      autogenerate: {
-        email: 'mike@mwghomeinspections.com',
-        // comma separated list of domains
-        domains: 'mwghomeinspections.com'
-      },
-      port: 443
-    },
-
     docker: {
       // change to 'abernix/meteord:base' if your app is using Meteor 1.4 - 1.5
       image: 'abernix/meteord:node-8.4.0-base',
     },
-
     // Show progress bar while uploading bundle to server
     // You might need to disable it on CI servers
     enableUploadProgressBar: true
   },
-
   mongo: {
     version: '3.4.1',
     servers: {
       one: {}
     }
-  }
+  },
+  proxy: { // (optional)
+    domains: 'mwghomeinspections.com,www.mwghomeinspections.com',
+    ssl: {
+      letsEncryptEmail: 'mike@mwghomeinspections.com',
+      forceSSL: true 
+    },
+  },
 };
