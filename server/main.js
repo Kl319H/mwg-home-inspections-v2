@@ -37,6 +37,19 @@ Meteor.startup(() => {
 
 });
 
+// Listen to incoming HTTP requests (can only be used on the server).
+WebApp.connectHandlers.use('/sitemap.xml', (req, res, next) => {
+  const sitemap = Assets.getText("sitemap.xml")
+  res.writeHead(200, {'Content-Type': 'application/xml'});
+  res.end(sitemap);
+});
+
+WebApp.connectHandlers.use('/robots.txt', (req, res, next) => {
+  const robots = Assets.getText("robots.txt")
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end(robots);
+});
+
 SSR.compileTemplate("email", Assets.getText("email.html"))
 
 Template.email.helpers({
