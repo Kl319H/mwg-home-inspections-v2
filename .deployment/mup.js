@@ -1,6 +1,6 @@
 //ssh root@159.65.70.35
 //docker exec -it mongodb mongo mwg-home-inspections
-//docker exec -it mongodb mongoexport --db mwg-home-inspections --collection contacts --type=csv --fields=date,firstName,lastName,email,phone,sqft,mls,message --out contacts.csv
+//docker exec -it mongodb mongoexport --db mwg-home-inspections  jj--collection contacts --type=csv --fields=date,firstName,lastName,email,phone,sqft,mls,message --out contacts.csv
 //docker cp mongodb:contacts.csv
 //scp -i ~/.ssh/id_rsa root@159.65.70.35:contacts.csv ~/Downloads/contacts.csv
 //mup logs -f
