@@ -25,9 +25,10 @@ Meteor.methods({
 
 Meteor.startup(() => {
   const emailPassword = Meteor.settings.emailPassword;
-  process.env.MAIL_URL = `smtps://mwginspections@gmail.com:${emailPassword}@smtp.gmail.com:465/`;
-  
-  /*   Email.send({
+  //process.env.MAIL_URL = `smtps://mwginspections@gmail.com:${emailPassword}@smtp.gmail.com:465/`; //wont work in prod
+  process.env.MAIL_URL = `smtp://mwginspections@gmail.com:${emailPassword}@smtp.gmail.com:587/`;
+  /* 
+    Email.send({
           from: "mwginspections@gmail.com",
           to: "derrick.gremillion@gmail.com",
           subject: "Test",
